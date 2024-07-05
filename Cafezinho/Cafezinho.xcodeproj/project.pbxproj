@@ -109,12 +109,12 @@
 		8DB602162C382D1D00EF856E /* Cafezinho */ = {
 			isa = PBXGroup;
 			children = (
-				8DB602522C383C1300EF856E /* View Models */,
 				8DB602472C382D2B00EF856E /* App Start */,
 				8DB602482C382D3D00EF856E /* Controllers */,
 				8DB6024F2C38377400EF856E /* Models */,
 				8DB602492C382D4600EF856E /* Resources */,
 				8DB6024C2C3834D900EF856E /* Services */,
+				8DB602522C383C1300EF856E /* View Models */,
 				8DB602252C382D1E00EF856E /* Info.plist */,
 			);
 			path = Cafezinho;

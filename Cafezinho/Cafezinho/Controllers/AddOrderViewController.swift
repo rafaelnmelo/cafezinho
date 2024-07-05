@@ -1,5 +1,11 @@
 import UIKit
 
+//MARK: - PROTOCOL -
+protocol AddOrderDelegate {
+    func addOrderViewControllerDidSave(order: Order, controller: UIViewController)
+    func addOrderViewControllerDidClose(controller: UIViewController)
+}
+
 //MARK: - CLASS -
 class AddOrderViewController: UIViewController {
     
@@ -10,9 +16,20 @@ class AddOrderViewController: UIViewController {
     private var sizesSegmentedControl: UISegmentedControl!
     private var viewModel = AddOrderViewModel()
     
+    var delegate: AddOrderDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+}
+
+//MARK: - IBACTIONS -
+extension AddOrderViewController {
+    @IBAction func close() {
+        if let delegate = self.delegate {
+            delegate.addOrderViewControllerDidClose(controller: self)
+        }
     }
     
     @IBAction func saveOrder() {
@@ -30,9 +47,24 @@ class AddOrderViewController: UIViewController {
         self.viewModel.selectedSize = selectedSize
         self.viewModel.selectedType = self.viewModel.types[indexPath.row]
         
-        
+        WebService().load(resource: Order.create(viewModel: self.viewModel)) { result in
+            switch result {
+            case .success(let order):
+                if let order = order, let delegate = self.delegate {
+                    DispatchQueue.main.async {
+                        delegate.addOrderViewControllerDidSave(order: order,
+                                                               controller: self)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
-    
+}
+
+//MARK: - FUNCTIONS -
+extension AddOrderViewController{
     private func setupUI() {
         self.sizesSegmentedControl = UISegmentedControl(items: self.viewModel.sizes)
         self.sizesSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
