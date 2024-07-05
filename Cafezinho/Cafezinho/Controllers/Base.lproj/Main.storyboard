@@ -70,18 +70,10 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-ld-Kt2">
-                                <rect key="frame" x="107" y="503" width="200" height="146"/>
+                                <rect key="frame" x="107" y="527" width="200" height="76"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zQI-v4-J4j">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="32"/>
-                                        <segments>
-                                            <segment title="Pequeno"/>
-                                            <segment title="Medio"/>
-                                            <segment title="Grande"/>
-                                        </segments>
-                                    </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="upi-vC-iYi">
-                                        <rect key="frame" x="0.0" y="70" width="200" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="76"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wLP-zg-loh">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
@@ -106,7 +98,7 @@
                         <constraints>
                             <constraint firstItem="gcS-ld-Kt2" firstAttribute="centerX" secondItem="4Ao-8P-xOR" secondAttribute="centerX" id="6sy-pU-ePX"/>
                             <constraint firstItem="4Ao-8P-xOR" firstAttribute="trailing" secondItem="vgV-rN-Odg" secondAttribute="trailing" id="8Au-Bq-a0o"/>
-                            <constraint firstItem="gcS-ld-Kt2" firstAttribute="top" secondItem="vgV-rN-Odg" secondAttribute="bottom" constant="26" id="9e9-iD-EnY"/>
+                            <constraint firstItem="gcS-ld-Kt2" firstAttribute="top" secondItem="vgV-rN-Odg" secondAttribute="bottom" constant="50" id="9e9-iD-EnY"/>
                             <constraint firstItem="vgV-rN-Odg" firstAttribute="width" secondItem="3DJ-h2-kpe" secondAttribute="width" id="at0-rO-loj"/>
                             <constraint firstItem="vgV-rN-Odg" firstAttribute="leading" secondItem="4Ao-8P-xOR" secondAttribute="leading" id="ft0-By-3Hp"/>
                             <constraint firstItem="vgV-rN-Odg" firstAttribute="top" secondItem="4Ao-8P-xOR" secondAttribute="top" id="oDK-6C-3la"/>
@@ -115,9 +107,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="Novo Pedido" id="S0Q-f7-ZNr">
                         <barButtonItem key="leftBarButtonItem" title="Fechar" id="n4E-LN-VWN"/>
-                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="HCt-cF-AJ7"/>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="HCt-cF-AJ7">
+                            <connections>
+                                <action selector="saveOrder" destination="49E-XX-OhM" id="Jnq-Fs-DhV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailTextField" destination="4D2-5P-BV5" id="YxO-lN-i3I"/>
+                        <outlet property="nameTextField" destination="wLP-zg-loh" id="ptr-IZ-OvO"/>
                         <outlet property="tableView" destination="vgV-rN-Odg" id="ht1-ua-XIz"/>
                     </connections>
                 </viewController>
