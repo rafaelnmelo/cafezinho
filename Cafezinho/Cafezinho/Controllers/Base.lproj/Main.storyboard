@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="840.57971014492762" y="66.964285714285708"/>
         </scene>
-        <!--Adicionar Novo Pedido-->
+        <!--Novo Pedido-->
         <scene sceneID="cqH-4X-N36">
             <objects>
                 <viewController id="49E-XX-OhM" customClass="AddOrderViewController" customModule="Cafezinho" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +55,7 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="421"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="eBa-bJ-YMq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CofeeTypeTableViewCell" id="eBa-bJ-YMq">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eBa-bJ-YMq" id="MYM-4v-ZUg">
@@ -64,6 +64,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="49E-XX-OhM" id="HIP-RF-pSy"/>
+                                    <outlet property="delegate" destination="49E-XX-OhM" id="dBv-be-Cj5"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-ld-Kt2">
                                 <rect key="frame" x="107" y="503" width="200" height="146"/>
@@ -109,10 +113,13 @@
                             <constraint firstItem="vgV-rN-Odg" firstAttribute="height" secondItem="3DJ-h2-kpe" secondAttribute="height" multiplier="0.5" id="wtE-wR-8N9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Adicionar Novo Pedido" id="S0Q-f7-ZNr">
+                    <navigationItem key="navigationItem" title="Novo Pedido" id="S0Q-f7-ZNr">
                         <barButtonItem key="leftBarButtonItem" title="Fechar" id="n4E-LN-VWN"/>
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="HCt-cF-AJ7"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="vgV-rN-Odg" id="ht1-ua-XIz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7D-vT-lp5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
